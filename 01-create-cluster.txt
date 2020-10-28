@@ -1,24 +1,23 @@
 @@@@@ TERMINAL=1 POSITION[1]=6,160  SKIP=1 SLEEP_PROMPT=0 DEFAULT_PROMPT_REGEXP='\$\ '
 @@@@@ TERMINAL=3 RESET_TERMINAL=3 POSITION[3]=20,20 TERMINAL_SIZE_PIXEL[3]=650x120 TERMINAL_COLOR_BACKGROUND[3]=FFFFFF TERMINAL_COLOR_FONT[3]=000000 TERMINAL_HIDE_CURSOR[3]=1 SKIP=1 SLEEP_EOL=50
  Let's create a small 5 nodes cluster @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold' SLEEP_EOL=60 DEFAULT_SLEEP_CHAR=4
- This demo uses FictionCloud Kubernetes Service (a.k.a. FKS). @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold'
+ This demo uses FictionCloud Kubernetes Service (a.k.a. FKS) @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold'
  FKS offers unlimited Kubernetes, for free! @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold'
 @@@@@ SLEEP_NL=800
 $ fictionctl cluster create --name demo-cluster --workers 5 @@@@@ DEFAULT_TERMINAL=1 TERMINAL=1 PROMPT=1 PROMPT_CHAR=''
-Cluster created in [0s]
+Cluster sucessfully created in [0s]
 @@@@@ SLEEP_NL=500
 $ fictionctl cluster show --name demo-cluster
-NAME        READY       AGE     IP
-worker-1    Running     5s      10.0.0.1
-worker-2    Running     5s      10.0.0.2
-worker-3    Running     5s      10.0.0.3
-worker-4    Running     5s      10.0.0.4
-worker-5    Running     5s      10.0.0.5
+NAME		    READY		AGE		    IP
+worker-1        Running     5s          10.0.0.1
+worker-2        Running     5s          10.0.0.2
+worker-3        Running     5s          10.0.0.3
+worker-4        Running     5s          10.0.0.4
+worker-5        Running     5s          10.0.0.5
 @@@@@ SKIP=1
- Be sure all Calico related pods are up and running. @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold'
-@@@@@ SLEEP_NL=700
+ Be sure all Calico related pods are up and running @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold'
+@@@@@ SLEEP_NL=600
 $ kubectl get po -n kube-system -l k8s-app=calico-node -o wide @@@@@ DEFAULT_TERMINAL=1 TERMINAL=1 PROMPT=1 PROMPT_CHAR=''
-
 NAME                READY   STATUS    RESTARTS   AGE    IP          NODE
 calico-node-5gv8p   1/1     Running   0          9s     10.0.0.1   10.0.0.1
 calico-node-wxffz   1/1     Running   0          9s     10.0.0.2   10.0.0.2
