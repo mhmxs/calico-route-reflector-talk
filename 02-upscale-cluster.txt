@@ -1,0 +1,96 @@
+@@@@@ TERMINAL=1 POSITION[1]=6,160  SKIP=1 SLEEP_PROMPT=0 DEFAULT_PROMPT_REGEXP='\$\ '
+@@@@@ TERMINAL=3 RESET_TERMINAL=3 POSITION[3]=20,20 TERMINAL_SIZE_PIXEL[3]=650x120 TERMINAL_COLOR_BACKGROUND[3]=FFFFFF TERMINAL_COLOR_FONT[3]=000000 TERMINAL_HIDE_CURSOR[3]=1 SKIP=1 SLEEP_EOL=50
+ Time to upscale the cluster to 5000 nodes @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold' SLEEP_EOL=60 DEFAULT_SLEEP_CHAR=4
+$ fictionctl cluster upscale --name demo-cluster --workers 5000 @@@@@ DEFAULT_TERMINAL=1 TERMINAL=1 PROMPT=1 PROMPT_CHAR=''
+Cluster sucessfully upscaled in [0s]
+@@@@@ SLEEP_NL=300
+$ fictionctl cluster show --name demo-cluster
+NAME		    READY		AGE		    IP
+worker-1		Running		3m12s		10.0.0.1
+worker-2		Running		3m12s		10.0.0.2
+worker-3		Running		3m12s		10.0.0.3
+worker-4		Running		3m12s		10.0.0.4
+worker-5		Running		3m12s		10.0.0.5
+worker-6		Running		3m12s		10.0.0.6
+worker-7		Running		3m12s		10.0.0.7
+worker-8		Running		3m12s		10.0.0.8
+worker-9		Running		3m12s		10.0.0.9
+worker-10		Running		3m12s		10.0.0.10
+worker-11		Running		3m12s		10.0.0.11
+worker-12		Running		3m12s		10.0.0.12
+worker-13		Running		3m12s		10.0.0.13
+worker-14		Running		3m12s		10.0.0.14
+worker-15		Running		3m12s		10.0.0.15
+worker-16		Running		3m12s		10.0.0.16
+worker-17		Running		3m12s		10.0.0.17
+worker-18		Running		3m12s		10.0.0.18
+worker-19		Running		3m12s		10.0.0.19
+worker-20		Running		3m12s		10.0.0.20
+worker-21		Running		3m12s		10.0.0.21
+worker-22		Running		3m12s		10.0.0.22
+worker-23		Running		3m12s		10.0.0.23
+worker-24		Running		3m12s		10.0.0.24
+worker-25		Running		3m12s		10.0.0.25
+worker-26		Running		3m12s		10.0.0.26
+worker-27		Running		3m12s		10.0.0.27
+worker-28		Running		3m12s		10.0.0.28
+worker-29		Running		3m12s		10.0.0.29
+worker-30		Running		3m12s		10.0.0.30
+worker-31		Running		3m12s		10.0.0.31
+worker-32		Running		3m12s		10.0.0.32
+worker-33		Running		3m12s		10.0.0.33
+worker-34		Running		3m12s		10.0.0.34
+worker-35		Running		3m12s		10.0.0.35
+worker-36		Running		3m12s		10.0.0.36
+worker-37		Running		3m12s		10.0.0.37
+worker-38		Running		3m12s		10.0.0.38
+worker-39		Running		3m12s		10.0.0.39
+worker-40		Running		3m12s		10.0.0.40
+worker-41		Running		3m12s		10.0.0.41
+^C
+worker-42		Running		3m12s		10.0.0.42
+worker-43		Running		3m12s		10.0.0.43
+worker-44		Running		3m12s		10.0.0.44
+worker-45		Running		3m12s		10.0.0.45
+worker-46		Running		3m12s		10.0.0.46
+worker-47		Running		3m12s		10.0.0.47
+worker-48		Running		3m12s		10.0.0.48
+worker-49		Running		3m12s		10.0.0.49
+^C
+worker-50		Running		3m12s		10.0.0.50
+worker-51		Running		3m12s		10.0.0.51
+worker-52		Running		3m12s		10.0.0.52
+worker-53		Running		3m12s		10.0.0.53
+worker-54		Running		3m12s		10.0.0.54
+worker-55		Running		3m12s		10.0.0.55
+worker-56		Running		3m12s		10.0.0.56
+worker-57		Running		3m12s		10.0.0.57
+worker-58		Running		3m12s		10.0.0.58
+worker-59		Running		3m12s		10.0.0.59
+worker-60		Running		3m12s		10.0.0.60
+^C
+worker-61		Running		3m12s		10.0.0.61
+worker-62		Running		3m12s		10.0.0.62
+worker-63		Running		3m12s		10.0.0.63
+worker-64		Running		3m12s		10.0.0.64
+worker-65		Running		3m12s		10.0.0.65
+worker-66		Running		3m12s		10.0.0.66
+worker-67		Running		3m12s		10.0.0.67
+worker-68		Running		3m12s		10.0.0.68
+worker-69		Running		3m12s		10.0.0.69
+worker-70		Running		3m12s		10.0.0.70
+worker-71		Running		3m12s		10.0.0.71
+^C
+worker-72		Running		3m12s		10.0.0.72
+worker-73		Running		3m12s		10.0.0.73
+worker-74		Running		3m12s		10.0.0.74
+worker-75		Running		3m12s		10.0.0.75
+^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C^C
+@@@@@ SLEEP_NL=300
+$ fictionctl cluster show --name demo-cluster | grep -c "Running" @@@@@ DEFAULT_TERMINAL=1 TERMINAL=1 PROMPT=1 PROMPT_CHAR=''
+5000
+@@@@@ SKIP=1
+ Be sure all Calico related pods are up and running @@@@@ TERMINAL=3 PROMPT=1 PROMPT_CHAR='' FONT='DejaVu-Sans-Condensed-Bold'
+$ kubectl get po -n kube-system -l k8s-app=calico-node -o wide | grep -c "Running" @@@@@ DEFAULT_TERMINAL=1 TERMINAL=1 PROMPT=1 PROMPT_CHAR=''
+5000
+@@@@@ SLEEP_NL=6000
